@@ -1,6 +1,6 @@
 require_relative "../require/macfuse"
 
-class Securefs < Formula
+class SecurefsMac < Formula
   desc "Filesystem with transparent authenticated encryption"
   homepage "https://github.com/netheril96/securefs"
   url "https://github.com/netheril96/securefs.git",
@@ -12,6 +12,13 @@ class Securefs < Formula
   depends_on "cmake" => :build
   depends_on MacfuseRequirement
   depends_on :macos
+  depends_on "utf8proc"
+  depends_on "cryptopp"
+  depends_on "jsoncpp"
+  depends_on "argon2"
+  depends_on "abseil"
+  depends_on "tclap"
+  depends_on "catch2"
 
   def install
     setup_fuse
