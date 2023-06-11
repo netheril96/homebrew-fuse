@@ -4,12 +4,13 @@ class SecurefsMac < Formula
   desc "Filesystem with transparent authenticated encryption"
   homepage "https://github.com/netheril96/securefs"
   url "https://github.com/netheril96/securefs.git",
-      tag:      "0.13.1",
-      revision: "bb7088e3fe43cd5978ec6b09b4cd9615a4ab654c"
+      tag:      "0.14.1",
+      revision: "4a57f0342d1f0f71f6b8833abf4a6bafc0e6c187"
   license "MIT"
   head "https://github.com/netheril96/securefs.git"
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on MacfuseRequirement
   depends_on :macos
   depends_on "utf8proc"
@@ -22,7 +23,7 @@ class SecurefsMac < Formula
 
   def install
     setup_fuse
-    system "cmake", ".", *fuse_cmake_args, *std_cmake_args
+    system "cmake", "-DSECUREFS_USE_VCPKG=OFF", ".", *fuse_cmake_args, *std_cmake_args
     system "make", "install"
   end
 

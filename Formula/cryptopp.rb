@@ -7,7 +7,8 @@ class Cryptopp < Formula
 
   def install
     ENV.cxx11 
-    system "make", "CXX=#{ENV.cxx}"
+    system "make", "lean", "CXX=#{ENV.cxx}"
+    system "make", "test"
     system "make", "install", "PREFIX=#{prefix}"
   end
 
