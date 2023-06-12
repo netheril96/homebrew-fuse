@@ -4,8 +4,8 @@ class SecurefsMac < Formula
   desc "Filesystem with transparent authenticated encryption"
   homepage "https://github.com/netheril96/securefs"
   url "https://github.com/netheril96/securefs.git",
-      tag:      "0.14.1",
-      revision: "4a57f0342d1f0f71f6b8833abf4a6bafc0e6c187"
+      tag:      "0.14.2",
+      revision: "9dc5167a88b82b811b37a8069562780fcc4ece45"
   license "MIT"
   head "https://github.com/netheril96/securefs.git"
 
