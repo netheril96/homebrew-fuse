@@ -24,6 +24,7 @@ class SecurefsMac < Formula
   def install
     setup_fuse
     system "cmake", "-DSECUREFS_USE_VCPKG=OFF", "-DSECUREFS_ENABLE_INTEGRATION_TEST=OFF", ".", *fuse_cmake_args, *std_cmake_args
+    system "make"
     system "make", "test"
     system "make", "install"
   end
