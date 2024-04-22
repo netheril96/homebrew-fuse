@@ -4,27 +4,29 @@ class SecurefsMac < Formula
   desc "Filesystem with transparent authenticated encryption"
   homepage "https://github.com/netheril96/securefs"
   url "https://github.com/netheril96/securefs.git",
-      tag:      "0.14.3",
-      revision: "8345530d700a6ff73ef59c5074403dede9f9ce96"
+      tag:      "v1.0.0",
+      revision: "01e8a406c1dac25b6f5d051e7a8a7fadfe7c1ba7"
   license "MIT"
-  head "https://github.com/netheril96/securefs.git"
+  head "https://github.com/netheril96/securefs.git", branch: "dev"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on MacfuseRequirement
   depends_on :macos
-  depends_on "utf8proc"
+  depends_on "uni-algo"
   depends_on "cryptopp"
-  depends_on "jsoncpp"
+  depends_on "protobuf"
   depends_on "argon2"
   depends_on "abseil"
   depends_on "tclap"
   depends_on "doctest"
+  depends_on "sqlite"
+  depends_on "fruit"
 
   def install
     setup_fuse
     system "cmake", "-DSECUREFS_USE_VCPKG=OFF", "-DSECUREFS_ENABLE_INTEGRATION_TEST=OFF", ".", *fuse_cmake_args, *std_cmake_args
-    system "make"
+    system "make", "-j4"
     system "make", "test"
     system "make", "install"
   end
