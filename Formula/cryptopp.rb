@@ -1,9 +1,9 @@
 class Cryptopp < Formula
   desc "Free C++ class library of cryptographic schemes"
   homepage "http://www.cryptopp.com/"
-  url "https://cryptopp.com/cryptopp880.zip"
-  sha256 "ace1c7b010a409eba5e86c4fd5a8845c43a6ac39bb6110e64ca5d7fea08583f4"
-  version "8.8.0"
+  url "https://www.cryptopp.com/cryptopp890.zip"
+  sha256 "4cc0ccc324625b80b695fcd3dee63a66f1a460d3e51b71640cdbfc4cd1a3779c"
+  version "8.9.0"
 
   def install
     ENV.append "CXXFLAGS", "-std=gnu++17"
