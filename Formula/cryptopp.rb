@@ -6,7 +6,7 @@ class Cryptopp < Formula
   version "8.8.0"
 
   def install
-    ENV.cxx11 
+    ENV.append "CXXFLAGS", "-std=gnu++17"
     system "make", "lean", "CXX=#{ENV.cxx}"
     system "make", "test"
     system "make", "install", "PREFIX=#{prefix}"
@@ -27,7 +27,7 @@ class Cryptopp < Formula
         return 0;
       }
     EOS
-    ENV.cxx11
+    ENV.append "CXXFLAGS", "-std=gnu++17"
     system ENV.cxx, "test.cpp", "-L#{lib}", "-lcryptopp", "-o", "test"
     system "./test"
   end
