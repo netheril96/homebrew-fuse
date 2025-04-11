@@ -13,19 +13,20 @@ class SecurefsMac < Formula
   depends_on "pkg-config" => :build
   depends_on MacfuseRequirement
   depends_on :macos
-  depends_on "uni-algo"
-  depends_on "cryptopp"
-  depends_on "protobuf"
-  depends_on "argon2"
   depends_on "abseil"
-  depends_on "tclap"
+  depends_on "argon2"
+  depends_on "cryptopp"
   depends_on "doctest"
-  depends_on "sqlite"
   depends_on "fruit"
+  depends_on "protobuf"
+  depends_on "sqlite"
+  depends_on "tclap"
+  depends_on "uni-algo"
 
   def install
     setup_fuse
-    system "cmake", "-DSECUREFS_USE_VCPKG=OFF", "-DSECUREFS_ENABLE_INTEGRATION_TEST=OFF", ".", *fuse_cmake_args, *std_cmake_args
+    system "cmake", "-DSECUREFS_USE_VCPKG=OFF",
+           "-DSECUREFS_ENABLE_INTEGRATION_TEST=OFF", ".", *fuse_cmake_args, *std_cmake_args
     system "make", "-j4"
     system "make", "test"
     system "make", "install"
