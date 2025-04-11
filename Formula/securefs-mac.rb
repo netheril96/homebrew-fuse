@@ -11,12 +11,12 @@ class SecurefsMac < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on MacfuseRequirement
   depends_on "abseil"
   depends_on "argon2"
   depends_on "cryptopp"
   depends_on "doctest"
   depends_on "fruit"
+  depends_on MacfuseRequirement
   depends_on :macos
   depends_on "protobuf"
   depends_on "sqlite"
