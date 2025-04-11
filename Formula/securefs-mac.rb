@@ -7,7 +7,7 @@ class SecurefsMac < Formula
       tag:      "v1.0.0",
       revision: "01e8a406c1dac25b6f5d051e7a8a7fadfe7c1ba7"
   license "MIT"
-  head "https://github.com/netheril96/securefs.git", branch: "dev"
+  head "https://github.com/netheril96/securefs.git", branch: "master"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
