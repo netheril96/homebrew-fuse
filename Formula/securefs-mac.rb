@@ -28,7 +28,11 @@ class SecurefsMac < Formula
     system "cmake", "-DSECUREFS_USE_VCPKG=OFF",
            "-DSECUREFS_ENABLE_INTEGRATION_TEST=OFF", ".", *fuse_cmake_args, *std_cmake_args
     system "make", "-j4"
-    system "make", "test"
+    begin
+      system "make", "test"
+    rescue
+      odie "maybe you need to install protobuf from source, i.e. run `brew install --build-from-source protobuf`."
+    end
     system "make", "install"
   end
 
